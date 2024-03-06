@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetpasswordController;
 use App\Http\Controllers\Categories\CategoryController;
 use App\Http\Controllers\event\EventController;
+use App\Http\Controllers\home\UpcomingEventsController;
 use App\Http\Controllers\organizer\OrganizerController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/Home', function () {return view('dashboard.Home');});
-Route::get('/', function () {return view('dashboard.index');});
+Route::get('/', function () {return view('welcome');});
 Route::get('/payment', function () {return view('dashboard.payment');});
 Route::get('/pricing-plans', function () {return view('dashboard.pricing-plans');});
 
@@ -58,6 +59,6 @@ Route::get('/events/{eventId}/activate', [EventController::class, 'activateEvent
 Route::get('/events/{eventId}/cancel', [EventController::class, 'cancelEvent'])->name('events.cancel');
 
 // home Routes...
+Route::get('/', [UpcomingEventsController::class,'index'])->name('home');
 Route::get('/event/{event}/show', [EventController::class,'ShowEvent'])->name('event.details');
-
 Route::get('/events', [EventController::class,'fetchEvents'])->name('event.all');

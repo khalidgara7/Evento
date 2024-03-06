@@ -10,7 +10,7 @@
 @section('content')
     <div class="py-16">
         <div class="flex  rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-            <img src=" {{ URL::asset('assets/images/registerimg.png') }}" class="hidden lg:block lg:w-1/2 bg-cover">
+            <img src=" {{ URL::asset('assets/images/registerimg.jpg') }}" class="hidden lg:block lg:w-1/2 bg-cover">
 
 
                 <div class="w-full bg-dark-200 p-8 lg:w-1/2">
@@ -41,14 +41,14 @@
                         <a href="#" class="text-xs text-center text-gray-200 uppercase">or login with email</a>
                         <span class="border-b w-1/5 lg:w-1/4"></span>
                     </div>
-                    <form action="{{ Route('forgetpassword.request') }}" method="POST">
+                    <form action="{{ route('forgetpassword.request') }}" method="POST">
                         @csrf
                         @method('POST')
                     <div class="mt-4">
                         <label class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
                         <input name="email"
                             class="bg-gray-300 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="email" />
+                            type="email"/>
                     </div>
 
                     <div class="mt-8">

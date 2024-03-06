@@ -1,5 +1,5 @@
 <!-- main header @s -->
-<div class="nk-header is-light nk-header-fixed is-light">
+<div class="nk-header is-light nk-header-fixed is-light" style="z-index: 1000">
     <div class="container-xl wide-xl">
         <div class="nk-header-wrap">
             <div class="nk-menu-trigger d-xl-none ms-n1 me-3">
@@ -25,7 +25,7 @@
                         <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
                             <div class="dropdown-head">
                                 <span class="sub-title nk-dropdown-title">Notifications</span>
-                                <a href="#">Mark All as Read</a>
+                                <a href="">Mark All as Read</a>
                             </div>
                             <div class="dropdown-body">
                                 <div class="nk-notification">

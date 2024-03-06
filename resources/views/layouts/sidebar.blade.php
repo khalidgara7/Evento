@@ -5,7 +5,7 @@
 <div class="nk-sidebar is-light nk-sidebar-fixed is-light " data-content="sidebarMenu">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="{{ url('/index') }}" class="logo-link nk-sidebar-logo">
+            <a href="{{ url('/') }}" class="logo-link nk-sidebar-logo">
                 <img class="logo-light logo-img" src="{{ asset('images/logo.png') }}"
                      srcset="{{ asset('images/logo2x.png 2x') }}" alt="logo">
                 <img class="logo-dark logo-img" src="{{ asset('images/logo-dark.png') }}"
