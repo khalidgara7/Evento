@@ -12,4 +12,5 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('css/dashlite.css?ver=3.2.3') }}">
     <link id="skin-default" rel="stylesheet" href="{{ asset('css/theme.css') }}">
+
 </head>

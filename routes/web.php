@@ -22,56 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/_blank', function () {
-    return view('dashboard._blank');
-});
-
-Route::get('/history', function () {
-    return view('dashboard.history');
-});
-
-Route::get('/document-editor-edit', function () {
-    return view('dashboard.document-editor-edit');
-});
-
-Route::get('/document-editor-generate', function () {
-    return view('dashboard.document-editor-generate');
-});
-
-Route::get('/document-editor', function () {
-    return view('dashboard.document-editor');
-});
-Route::get('/document-saved', function () {
-    return view('dashboard.document-saved');
-});
-
-Route::get('/history', function () {
-    return view('dashboard.history');
-});
-
-Route::get('/', function () {
-    return view('dashboard.index');
-});
-
-Route::get('/payment', function () {
-    return view('dashboard.payment');
-});
-
-Route::get('/profile', function () {
-    return view('dashboard.profile');
-});
-
-Route::get('/templates-list', function () {
-    return view('dashboard.templates-list');
-});
-
-Route::get('/templates', function () {
-    return view('dashboard.templates');
-});
-
-Route::get('/pricing-plans', function () {
-    return view('dashboard.pricing-plans');
-});
+Route::get('/Home', function () {return view('dashboard.Home');});
+Route::get('/', function () {return view('dashboard.index');});
+Route::get('/payment', function () {return view('dashboard.payment');});
+Route::get('/pricing-plans', function () {return view('dashboard.pricing-plans');});
 
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('loginform');
@@ -99,3 +53,11 @@ Route::resource('category',CategoryController::class);
 
 // Event Routes...
 Route::resource('event',EventController::class);
+
+Route::get('/events/{eventId}/activate', [EventController::class, 'activateEvent'])->name('events.activate');
+Route::get('/events/{eventId}/cancel', [EventController::class, 'cancelEvent'])->name('events.cancel');
+
+// home Routes...
+Route::get('/event/{event}/show', [EventController::class,'ShowEvent'])->name('event.details');
+
+Route::get('/events', [EventController::class,'fetchEvents'])->name('event.all');

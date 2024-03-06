@@ -75,7 +75,20 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Event::findOrFail($id);
+        $data = $request->validated();
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $fileName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $fileName);
+            $data['image'] = $fileName;
+        }
+        $updated = $category->update($data);
+
+        if ($updated) {
+            return redirect()->route('category.index')->with('success', 'Category updated successfully.');
+        } else {
+            return back()->withInput()->with('error', 'Failed to update the category.');
+        }
     }
 
     /**
@@ -83,6 +96,39 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->delete();
+        return redirect()->route('event.index')->with('success', 'Event activated successfully.');
+
+    }
+
+    public function activateEvent($eventId)
+    {
+        $event = Event::findOrFail($eventId);
+        $event->update(['status' => 'active']);
+
+        return redirect()->route('event.index')->with('success', 'Event activated successfully.');
+    }
+
+
+    public function cancelEvent($eventId)
+    {
+        $event = Event::findOrFail($eventId);
+        $event->update(['status'=> 'cancelled']);
+
+        return redirect()->route('event.index')->with('success', 'Event activated successfully.');
+
+    }
+
+    public function fetchEvents()
+    {
+        $events = Event::paginate(5);
+        return view('front.events.events', compact('events'));
+    }
+
+    public function ShowEvent($eventId)
+    {
+        $event = Event::findOrFail($eventId);
+        return view('front.events.details', compact('event'));
     }
 }

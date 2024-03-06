@@ -23,20 +23,31 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+   /* public function create()
     {
-        return view("back.categories.create");
-    }
+//        return response();
+
+//        return view("back.categories.create");
+    }*/
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryRequest $request)
+   /* public function store(CategoryRequest $request)
     {
+//        $data = $request->validated();
+//        $fileName = time() . '.' . $request->image->extension();
+//        $request->image->storeAs('public/images', $fileName);
+//        $data['image'] = $fileName;
+
         $data = $request->validated();
-        $fileName = time() . $request->name . '.' . $request->image->extension();
-        $request->image->storeAs('public/images', $fileName);
-        $data['image'] = $fileName;
+        $destinationPath = 'public/images';
+        $extension = $request->file("image")->Extension();
+        $newFilename = date('YmdHism') . "." . $extension;
+        $request->file("image")->storeAs($destinationPath, $newFilename);
+
+
+
 
         $category = Category::create($data);
         if ($category) {
@@ -44,8 +55,18 @@ class CategoryController extends Controller
         } else {
             return back()->withInput()->with('error', 'Failed to create the category.');
         }
-    }
+    }*/
 
+
+
+    public function store(Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => ['required', 'string', 'max:255']
+        ]);
+        $category = Category::create($attributes);
+        return response()->json($category, 201);
+    }
     /**
      * Display the specified resource.
      */
@@ -70,7 +91,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $data = $request->validated();
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $fileName = time() . '_' . $request->name . '.' . $request->image->extension();
+            $fileName = time() . '.' . $request->image->extension();
             $request->image->storeAs('public/images', $fileName);
             $data['image'] = $fileName;
         }

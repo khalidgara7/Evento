@@ -14,7 +14,7 @@
 @section('content')
     <section class="container pt-16 px-24 mx-auto">
         <h2 class="my-8 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
-            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Managment
+            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Management
         </h2>
         <a href="{{ route('event.create') }}"
             class="px-8 py-2 my-8 bg-orange rounded customgradient  text-gray-100 hover:bg-orange-100 focus:outline-none transition-colors">
@@ -204,8 +204,6 @@
                                                         </svg>
                                                     </button>
                                                 </form>
-
-
                                             </div>
                                         </td>
                                     </tr>

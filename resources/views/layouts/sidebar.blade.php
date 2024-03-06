@@ -27,70 +27,25 @@
                         <h6 class="overline-title text-primary-alt">Dashboards</h6>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="{{ url('/index') }}" class="nk-menu-link">
+                        <a href="{{ url('/') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-presentation"></em></span>
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
-                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                                        <span class="nk-menu-icon">
-                                            <em class="icon ni ni-folder-list"></em>
-                                        </span>
-                            <span class="nk-menu-text">Documents</span>
-                        </a>
-                        <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="{{ url('/document-saved') }}" class="nk-menu-link">
-                                    <span class="nk-menu-text">Saved</span>
-                                </a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="{{ url('/document-drafts') }}" class="nk-menu-link">
-                                    <span class="nk-menu-text">Drafts</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nk-menu-item has-sub">
-                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                                        <span class="nk-menu-icon">
-                                            <em class="icon ni ni-edit"></em>
-                                        </span>
-                            <span class="nk-menu-text">Editor</span>
-                        </a>
-                        <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="{{ url('/document-editor') }}" class="nk-menu-link">
-                                    <span class="nk-menu-text">New</span>
-                                </a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="{{ url('/document-editor-generate') }}" class="nk-menu-link">
-                                    <span class="nk-menu-text">Generate</span>
-                                </a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="{{ url('/document-editor-edit') }}" class="nk-menu-link">
-                                    <span class="nk-menu-text">Edit</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="nk-menu-item">
-                        <a href="{{ url('/templates') }}" class="nk-menu-link">
+                        <a href="{{ url('/event') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon">
                                             <em class="icon ni ni-layers"></em>
                                         </span>
-                            <span class="nk-menu-text">Templates</span>
+                            <span class="nk-menu-text">Events</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="{{ url('/history') }}" class="nk-menu-link">
+                        <a href="{{ url('/category') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon">
                                             <em class="icon ni ni-clock"></em>
                                         </span>
-                            <span class="nk-menu-text">History</span>
+                            <span class="nk-menu-text">Category</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
@@ -99,14 +54,6 @@
                                             <em class="icon ni ni-sign-usdc"></em>
                                         </span>
                             <span class="nk-menu-text">Pricing Plans</span>
-                        </a>
-                    </li>
-                    <li class="nk-menu-item">
-                        <a href="{{ url('/profile') }}" class="nk-menu-link">
-                                        <span class="nk-menu-icon">
-                                            <em class="icon ni ni-user"></em>
-                                        </span>
-                            <span class="nk-menu-text">Profile</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
