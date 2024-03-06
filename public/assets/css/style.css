@@ -1,0 +1,39 @@
+.customgradient {
+
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(155,31,218,0.9192927170868347) 30%, rgba(42,122,90,1) 99%);
+}
+
+.customgradientrev {
+
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(155,31,218,0.9192927170868347) 30%, rgba(42,122,90,1) 99%);}
+
+.navbargradient {
+    background: rgb(0, 1, 73);
+    background: linear-gradient(312deg, rgba(0, 1, 73, 1) 12%, rgba(0, 1, 36, 1) 100%);
+}
+
+.darkgradient {
+    background: rgb(24, 0, 5);
+    background: linear-gradient(312deg, rgba(24, 0, 5, 0.9529061624649859) 26%, rgba(98, 0, 54, 0.9753151260504201) 100%);
+}
+
+.darkgradients {
+    background: rgb(12, 10, 9);
+    background: linear-gradient(70deg, rgba(12, 10, 9, 0.871) 70%, rgba(1, 65, 6, 0.899) 100%);
+}
+
+
+/* Add this style to your existing CSS or in a separate stylesheet */
+.nav-item {
+    transition: transform 0.3s ease;
+    /* Add smooth transition for the scaling effect */
+}
+
+.nav-item:hover {
+    background-color: #f0f0f0;
+    /* Change the background color as desired */
+    transform: scale(1.05);
+    /* Scale up by 5% on hover */
+}
