@@ -14,7 +14,7 @@
 @section('content')
     <main id="main" class=" pt-16 px-28">
         <h2 class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
-            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Management
+            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Managment
         </h2>
         <a href="{{ route('category.create') }}"
             class="px-4 py-2 my-4 bg-orange rounded customgradient  text-gray-100 hover:bg-orange-100 focus:outline-none transition-colors">

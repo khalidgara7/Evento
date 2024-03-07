@@ -231,7 +231,7 @@
                                         | Avaliable Seats :
                                         {{ $event->availableSeats }}
                                     </span>
-                                    <a href="{{ route('orangizer.reservations',$event->id) }}"
+                                    <a href=""
                                         class="text-gray-200 mt-2 border border-indigo-100 py-1 px-1 rounded inline-flex items-center">
                                         reservation
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round"
@@ -252,7 +252,6 @@
             <div class="m-4 p-4">
                 {{ $events->links() }}
             </div>
-        </div>
         </div>
     </main>
 @endsection

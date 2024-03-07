@@ -11,7 +11,7 @@
 @section('content')
     <div class=" py-16 ">
         <div class="flex  rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-            <img src=" {{ URL::asset('assets/images/event1.jpg') }}" class="hidden lg:block lg:w-1/2 bg-cover">
+            <img src=" {{ URL::asset('assets/images/section3.jpg') }}" class="hidden lg:block lg:w-1/2 bg-cover">
 
 
             <div class="w-full bg-dark-200 p-8 lg:w-1/2">

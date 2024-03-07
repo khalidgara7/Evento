@@ -14,7 +14,7 @@
 @section('content')
     <section class="container pt-16 px-24 mx-auto">
         <h2 class="my-8 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
-            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Management
+            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Managment
         </h2>
         <a href="{{ route('event.create') }}"
             class="px-8 py-2 my-8 bg-orange rounded customgradient  text-gray-100 hover:bg-orange-100 focus:outline-none transition-colors">
@@ -34,7 +34,7 @@
                                             <input type="checkbox"
                                                 class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
                                             <button class="flex items-center gap-x-2">
-                                                <span>Invoice</span>
+                                                <span>event</span>
 
                                                 <svg class="h-3" viewBox="0 0 10 11" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -56,6 +56,15 @@
                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                         Date
                                     </th>
+                                    <th scope="col"
+                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        Capacity
+                                    </th>
+
+                                    <th scope="col"
+                                        class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        Avaliable seats
+                                    </th>
 
                                     <th scope="col"
                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -64,7 +73,7 @@
 
                                     <th scope="col"
                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                        Customer
+                                        Organizer
                                     </th>
 
                                     <th scope="col"
@@ -73,7 +82,7 @@
                                     </th>
                                     <th scope="col"
                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                        Customer
+                                        status actions
                                     </th>
                                     <th scope="col"
                                         class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -92,15 +101,11 @@
 
                                                 <div class="flex items-center gap-x-2">
                                                     <img class="object-cover w-8 h-8 rounded-full"
-                                                        src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                                                        alt="">
+                                                        src="{{ asset('storage/images/' . $event->image) }}" alt="">
                                                     <div>
                                                         <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
-                                                            Arthur
-                                                            Melo
+                                                            {{ $event->title }}
                                                         </h2>
-                                                        <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                                                            authurmelo@example.com</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,38 +113,68 @@
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                             {{ $event->date }}
                                         </td>
+                                        <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            {{ $event->capacity }}
+                                        </td>
+                                        <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            @if ($event->availableSeats == null)
+                                            {{ $event->capacity  }}
+                                            @else
+                                            {{ $event->availableSeats  }}
+                                            @endif
+                                        </td>
                                         <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                            <div
-                                                class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
+                                            @if ($event->status == 'cancelled')
+                                                <div
+                                                    class="inline-flex items-center px-3 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
 
-                                                <h2 class="text-sm font-normal">Paid</h2>
-                                            </div>
+                                                    <h2 class="text-sm font-normal">{{ $event->status }}</h2>
+                                                </div>
+                                            @elseif ($event->status == 'active')
+                                                <div
+                                                    class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+                                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+
+                                                    <h2 class="text-sm font-normal">{{ $event->status }}</h2>
+                                                </div>
+                                            @elseif ($event->status == 'pending')
+                                                <div
+                                                    class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-black bg-gray-200 dark:bg-gray-800">
+                                                    <h2 class="text-sm font-normal">{{ $event->status }}</h2>
+                                                </div>
+                                            @endif
+
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                             <div class="flex items-center gap-x-2">
                                                 <img class="object-cover w-8 h-8 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                                    src="{{ asset('images/uploads/' . $event->organizer->profile_picture) }}"
                                                     alt="">
                                                 <div>
-                                                    <h2 class="text-sm font-medium text-gray-800 dark:text-white ">Arthur
-                                                        Melo
+                                                    <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
+                                                        {{ $event->organizer->user->firstname . ' ' . $event->organizer->user->lastname }}
                                                     </h2>
                                                     <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                                                        authurmelo@example.com</p>
+                                                        {{ $event->organizer->user->email }} </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                            Monthly subscription</td>
+                                            {{ $event->location }}
+                                        </td>
                                         <td class="px-4 py-3">
                                             <div class="flex items-center space-x-4 text-sm">
 
-                                                <a href="">
+                                                <a href="{{ route('events.activate',$event->id) }}">
                                                     <div
                                                         class="inline-flex items-center px-1 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
                                                         <button
@@ -154,7 +189,7 @@
                                                         </button>
                                                     </div>
                                                 </a>
-                                                <a href="">
+                                                <a href="{{ route('events.cancel',$event->id) }}">
                                                     <div
                                                         class="inline-flex items-center px-1 py-1 rounded-full gap-x-2 text-red-500 bg-red-100/60 dark:bg-gray-800">
                                                         <button
@@ -188,7 +223,7 @@
                                                     </button>
                                                 </a>
 
-                                                <form action="" method="POST">
+                                                <form action="{{ route('event.destroy',$event->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
@@ -204,100 +239,12 @@
                                                         </svg>
                                                     </button>
                                                 </form>
+
+
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
-
-                                <tr>
-                                    <td
-                                        class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                        <div class="inline-flex items-center gap-x-3">
-                                            <input type="checkbox"
-                                                class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
-
-                                            <span>#3065</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Jan 5,
-                                        2022</td>
-                                    <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                        <div
-                                            class="inline-flex items-center px-3 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 dark:bg-gray-800">
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-
-                                            <h2 class="text-sm font-normal">Cancelled</h2>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                        <div class="flex items-center gap-x-2">
-                                            <img class="object-cover w-8 h-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-                                                alt="">
-                                            <div>
-                                                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">Andi Lane
-                                                </h2>
-                                                <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                                                    andi@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                        Monthly subscription</td>
-                                    <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                        <div class="flex items-center gap-x-6">
-                                            <button
-                                                class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
-                                                Archive
-                                            </button>
-
-                                            <button
-                                                class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
-                                                Download
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <div class="flex items-center space-x-4 text-sm">
-                                            <a href="">
-                                                <button
-                                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                    aria-label="Edit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                        class="w-5 h-5">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                                    </svg>
-                                                </button>
-                                            </a>
-
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    onclick="return confirm('Do you really want to Delete ?');"
-                                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                    aria-label="Delete">
-                                                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                        viewBox="0 0 20 20">
-                                                        <path fill-rule="evenodd"
-                                                            d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                            clip-rule="evenodd">
-                                                        </path>
-                                                    </svg>
-                                                </button>
-                                            </form>
-
-                                        </div>
-                                    </td>
-                                </tr>
-
-
                             </tbody>
                         </table>
                     </div>

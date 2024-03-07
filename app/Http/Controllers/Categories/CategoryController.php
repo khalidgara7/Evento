@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-       return view("back.categories.create");
+        return view("back.categories.create");
     }
 
     /**
@@ -34,15 +34,9 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->validated();
-        $fileName = time() . '.' . $request->image->extension();
+        $fileName = time() . $request->name . '.' . $request->image->extension();
         $request->image->storeAs('public/images', $fileName);
         $data['image'] = $fileName;
-
-        $data = $request->validated();
-        $destinationPath = 'public/images';
-        $extension = $request->file("image")->Extension();
-        $newFilename = date('YmdHism') . "." . $extension;
-        $request->file("image")->storeAs($destinationPath, $newFilename);
 
         $category = Category::create($data);
         if ($category) {
@@ -76,7 +70,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $data = $request->validated();
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $fileName = time() . '.' . $request->image->extension();
+            $fileName = time() . '_' . $request->name . '.' . $request->image->extension();
             $request->image->storeAs('public/images', $fileName);
             $data['image'] = $fileName;
         }

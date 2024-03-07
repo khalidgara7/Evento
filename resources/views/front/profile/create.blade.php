@@ -83,15 +83,11 @@
                                     </div>
                                     <div class="mb-4 md:mb-0 md:w-1/2 px-2">
                                         <label for="event-name"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type Of Reservation</label>
-                                        <select name="validation_type" class="border p-2 rounded w-full">
-                                            <option selected value="auto">
-                                                Validate Reservations By your self
-                                            </option>
-                                            <option value="Manuel">
-                                                Auto Validation for Reservations
-                                            </option>
-                                            
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type Of
+                                            Reservation</label>
+                                        <select name="reservation_type" class="border p-2 rounded w-full">
+                                            <option selected value="manual">Validate Reservations By your self</option>
+                                            <option value="auto">Auto Validation for Reservations</option>
                                         </select>
 
                                     </div>

@@ -5,13 +5,15 @@ namespace App\Http\Controllers\organizer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\organizer\StoreOrganizerInfosRequest;
 use App\Models\Organizer;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrganizerController extends Controller
 {
+
     public function showOrganizerForm($userId)
     {
-        return view('organizer.organizer_info',compact('userId'));
+        return view('auth.organizer_info',compact('userId'));
     }
 
     public function storeOrganizerInfo(StoreOrganizerInfosRequest $request)

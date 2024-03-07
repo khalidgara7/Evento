@@ -7,7 +7,7 @@
                 <a href="#" class="flex items-center justify-center font-bold body-font text-gray-200 title-font md:justify-start">
                     EasyEvent
                 </a>
-                
+
                 <p class="mt-2 text-sm text-gray-500">Design, Code and Ship!</p>
                 <div class="mt-4">
                     <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
@@ -106,7 +106,7 @@
         </div>
         <div class="navbargradient bg-gray-900 ">
             <div class="container px-5 py-4 mx-auto">
-                <p class="text-sm text-gray-200 capitalize xl:text-center">© 2020 All rights reserved </p>
+                <p class="text-sm text-gray-200 capitalize xl:text-center">© 2024 All rights reserved </p>
             </div>
         </div>
     </footer>

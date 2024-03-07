@@ -10,7 +10,7 @@
 @section('content')
     <main class="  relative overflow-hidden  w-full h-full ">
         <img class="absolute inset-0  object-cover w-full h-full" src="{{ asset('assets/images/section4.jpg') }}"
-             alt="" srcset="">
+            alt="" srcset="">
         <div class="px-4 sm:px-6 customgradient lg:px-8  dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:flex relative">
                 <div class="sm:w-2/3 lg:w-1/2 sm:flex flex-col sm:relative z-50">
@@ -28,17 +28,17 @@
                     </p>
                     <div class="flex flex-col sm:flex-row items-start sm:items-center">
                         <a href="#"
-                           class="uppercase py-2 px-4 rounded-lg bg-orange-100 border-2 border-transparent text-white text-md mr-0 sm:mr-4 mb-2 sm:mb-0 hover:bg-pink-400">
+                            class="uppercase py-2 px-4 rounded-lg bg-orange-100 border-2 border-transparent text-white text-md mr-0 sm:mr-4 mb-2 sm:mb-0 hover:bg-pink-400">
                             Get started
                         </a>
                         <a href="#"
-                           class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-orange-100 text-orange-100 dark:text-white hover:bg-pink-500 hover:text-white text-md">
+                            class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-orange-100 text-orange-100 dark:text-white hover:bg-pink-500 hover:text-white text-md">
                             Read more
                         </a>
                     </div>
                 </div>
                 <div class="hidden lg:block  lg:w-3/5 relative">
-                    <img src="{{ asset('assets/images/hero1.png') }}" class="w-full  m-auto" />
+                    <img src="{{ asset('assets/images/gara.png') }}" class="w-full  m-auto" />
                 </div>
             </div>
         </div>
@@ -47,12 +47,12 @@
 
     <section class="relative overflow-hidden w-full h-full">
         <img class="absolute top-0 left-0 object-cover w-full h-full" src="{{ asset('assets/images/section3.jpg') }}"
-             alt="Background Image">
+            alt="Background Image">
         <div class="flex relative z-50 h-full items-center justify-center customgradient  px-8 dark:bg-gray-800">
             <div class="container mx-auto flex flex-wrap items-start">
                 <div class="w-full lg:w-2/5">
                     <img src="{{ asset('assets/images/aboutimg.png') }}" alt="Violinist" class="w-full inset-0 lg:max-w-lg"
-                         style="transform: translateY(0%);">
+                        style="transform: translateY(0%);">
                 </div>
                 <div class="w-full lg:w-3/5 px-6 text-center lg:text-left">
                     <div class="py-12">
@@ -86,7 +86,7 @@
                         </p>
                         <div class="mt-8">
                             <a href="#"
-                               class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-orange-100 text-orange-100 dark:text-white hover:bg-pink-500 hover:text-white text-md">
+                                class="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-orange-100 text-orange-100 dark:text-white hover:bg-pink-500 hover:text-white text-md">
                                 About us
                             </a>
                         </div>
@@ -100,7 +100,7 @@
     <section class=" customgradient w-full h-full  relative overflow-hidden ">
 
         <img class="absolute inset-0  object-cover w-full h-full" src="{{ asset('assets/images/section3.jpg') }}"
-             alt="" srcset="">
+            alt="" srcset="">
         <h2 class="flex justify-center customgradient relative font-bold text-4xl text-white  py-5 z-50"> UpComing Events
         </h2>
         <div class="flex relative z-50 customgradient items-center w-full h-full justify-center overflow-hidden">
@@ -110,7 +110,7 @@
                     <div class="">
                         <div class="max-w-sm  shadow-lg rounded-lg overflow-hidden my-4">
                             <img class="w-full h-56 object-cover object-center"
-                                 src="{{ asset('storage/images/' . $event->image) }}" alt="avatar">
+                                src="{{ asset('storage/images/' . $event->image) }}" alt="avatar">
 
                             <div class="py-4  px-6">
                                 <h3 class="text-2xl font-semibold text-gray-100">{{ $event->title }}</h3>
@@ -131,9 +131,9 @@
                                 </div>
                                 <div class="flex items-center mt-4 text-gray-100">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14"
-                                         viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                         <path fill="#d9dce3"
-                                              d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
+                                            d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
                                     </svg>
                                     <h4 class="px-2 text-sm">{{ \Carbon\Carbon::parse($event->date)->diffForHumans() }}</h4>
                                 </div>
@@ -155,7 +155,7 @@
                                             class="absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-orange-200 -rotate-12"></span>
                                         <span class="relative">View More</span>
                                     </a>
-                                    <a href="#_" class="relative px-6 py-2 font-medium text-white group">
+                                    <a href="{{ Route('booking.event',$event->id) }}" class="relative px-6 py-2 font-medium text-white group">
                                         <span
                                             class="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-primary-300 group-hover:bg-primary-100 group-hover:skew-x-12"></span>
                                         <span

@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::paginate(5);
+        $events = Event::paginate(3);
         return view('back.events.index', compact('events'));
     }
 
@@ -27,7 +27,8 @@ class EventController extends Controller
     {
         $categories = Category::all();
 
-        $organizers = User::whereHas('roles', function ($query) {
+        $organizers = User::whereHas('roles', function ($query)
+        {
             $query->where('name', 'organizer');
         })->get();
         return view('back.events.create',compact('categories','organizers'));
@@ -39,7 +40,7 @@ class EventController extends Controller
     public function store(StoreEventRequest $request)
     {
         $data = $request->validated();
-
+        $data['availableSeats'] = $data['capacity'];
         $fileName = time() . $request->name . '.' . $request->image->extension();
         $request->image->storeAs('public/images', $fileName);
         $data['image'] = $fileName;
@@ -59,7 +60,8 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $event = Event::find($id);
+        return view('back.events.show', compact('event'));
     }
 
     /**
@@ -75,20 +77,7 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $category = Event::findOrFail($id);
-        $data = $request->validated();
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $fileName = time() . '.' . $request->image->extension();
-            $request->image->storeAs('public/images', $fileName);
-            $data['image'] = $fileName;
-        }
-        $updated = $category->update($data);
-
-        if ($updated) {
-            return redirect()->route('category.index')->with('success', 'Category updated successfully.');
-        } else {
-            return back()->withInput()->with('error', 'Failed to update the category.');
-        }
+        //
     }
 
     /**
@@ -122,7 +111,7 @@ class EventController extends Controller
 
     public function fetchEvents()
     {
-        $events = Event::paginate(5);
+        $events = Event::paginate(10);
         return view('front.events.events', compact('events'));
     }
 

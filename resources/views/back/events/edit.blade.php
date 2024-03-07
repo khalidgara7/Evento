@@ -1,7 +1,7 @@
 @extends('back.layouts.master')
 
 @section('title')
-    edit Category
+    edit event
 @endsection
 
 @section('title_page')
@@ -14,7 +14,7 @@
 @section('content')
     <main id="main" class="pt-16 h-screen px-28">
         <h2 class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
-            <span class="text-primary-100 dark:text-orange">edit </span> category
+            <span class="text-primary-100 dark:text-orange">edit </span> event
         </h2>
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
 
@@ -36,22 +36,22 @@
                 <div class="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
                     <div class="container mx-auto p-4">
                         <div class="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
-                            <h1 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">category Data</h1>
-                            <p class="text-gray-600 dark:text-gray-300 mb-6">Here you can edit category's informations.</p>
-                            <form action="{{ route('category.update', $category) }}" enctype="multipart/form-data" method="POST">
+                            <h1 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">event Data</h1>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6">Here you can edit event's informations.</p>
+                            <form action="{{ route('event.update', $event) }}" enctype="multipart/form-data" method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <div class="mb-4">
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                    <input type="text" value="{{ $category->name }}" name="name"
+                                    <input type="text" value="{{ $event->name }}" name="name"
                                         class="border p-2 rounded w-full">
                                 </div>
                                 <div class=" mb-4">
 
                                     <label for="message"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                    <textarea name="description" id="message" rows="4" class="block  w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">{{ $category->description }}</textarea>
+                                    <textarea name="description" id="message" rows="4" class="block  w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">{{ $event->description }}</textarea>
 
                                 </div>
                                 <div class="mb-4">
