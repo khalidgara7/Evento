@@ -10,80 +10,127 @@
 
 @section('content')
     <div class=" py-16 ">
-        <div class="flex  rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-            <img src=" {{ URL::asset('assets/images/section3.jpg') }}" class="hidden lg:block lg:w-1/2 bg-cover">
+        <section class="-form h-full  dark:bg-neutral-700">
+            <div class="container h-full p-10">
+                <div
+                    class="flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+                    <div class="w-full">
+                        <div
+                            class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                            <div class="g-0 lg:flex lg:flex-wrap">
+                                <!-- Left column container-->
+                                <div class="px-4 md:px-0 lg:w-6/12">
+                                    <div class="md:mx-6 md:p-12">
+                                        <!--Logo-->
+                                        <div class="text-center">
+                                            <img
+                                                class="mx-auto w-48"
+                                                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                                alt="logo"/>
+                                            <h4 class="mb-12 mt-1 pb-1 text-xl font-semibold">
+                                                We are The Lotus Team
+                                            </h4>
+                                        </div>
+                                        @if ($errors->any())
+                                            <div class=" border text-center border-red-400 text-red-500 px-4 py-3 rounded relative"
+                                                 role="alert">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        <form action="{{ Route('login') }}" method="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <p class="mb-4">Please login to your account</p>
+                                            <!--Username input-->
+                                            <div class="relative mb-4" data-twe-input-wrapper-init>
+                                                <input
+                                                    name="email"
+                                                    type="email"
+                                                    class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                                                    id="exampleFormControlInput1"
+                                                    placeholder="Email"/>
+                                                <label
+                                                    for="exampleFormControlInput1"
+                                                    class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
+                                                >email
+                                                </label>
+                                            </div>
 
+                                            <!--Password input-->
+                                            <div class="relative mb-4" data-twe-input-wrapper-init>
+                                                <input
+                                                    type="password"
+                                                    name="password"
+                                                    class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                                                    id="exampleFormControlInput11"
+                                                    placeholder="Password"/>
+                                                <label
+                                                    for="exampleFormControlInput11"
+                                                    class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
+                                                >Password
+                                                </label>
+                                            </div>
 
-            <div class="w-full bg-dark-200 p-8 lg:w-1/2">
-                <h2 class="text-2xl font-semibold text-gray-200 text-center">Brand</h2>
-                <p class="text-xl text-gray-300 text-center">Welcome back!</p>
-                <a href="#"
-                    class="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-orange-100">
-                    <div class="px-4 py-3">
-                        <svg class="h-6 w-6" viewBox="0 0 40 40">
-                            <path
-                                d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                                fill="#FFC107" />
-                            <path
-                                d="M5.25497 12.2425L10.7308 16.2583C12.2125 12.59 15.8008 9.99999 20 9.99999C22.5491 9.99999 24.8683 10.9617 26.6341 12.5325L31.3483 7.81833C28.3716 5.04416 24.39 3.33333 20 3.33333C13.5983 3.33333 8.04663 6.94749 5.25497 12.2425Z"
-                                fill="#FF3D00" />
-                            <path
-                                d="M20 36.6667C24.305 36.6667 28.2167 35.0192 31.1742 32.34L26.0159 27.975C24.3425 29.2425 22.2625 30 20 30C15.665 30 11.9842 27.2359 10.5975 23.3784L5.16254 27.5659C7.92087 32.9634 13.5225 36.6667 20 36.6667Z"
-                                fill="#4CAF50" />
-                            <path
-                                d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
-                                fill="#1976D2" />
-                        </svg>
-                    </div>
-                    <h1 class="px-4 py-3 w-5/6 text-center text-gray-300 font-bold">Sign in with Google</h1>
-                </a>
-                <div class="mt-4 flex items-center justify-between">
-                    <span class="border-b w-1/5 lg:w-1/4"></span>
-                    <a href="#" class="text-xs text-center text-gray-200 uppercase">or login with email</a>
-                    <span class="border-b w-1/5 lg:w-1/4"></span>
-                </div>
-                @if ($errors->any())
-                    <div class=" border text-center border-red-400 text-red-500 px-4 py-3 rounded relative" role="alert">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="{{ Route('login') }}" method="POST">
-                    @csrf
-                    @method('POST')
-                    <div class="mt-4">
-                        <label class="block text-gray-300 text-sm font-bold mb-2">Email Address</label>
-                        <input name="email"
-                            class="bg-gray-300 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="email" />
-                    </div>
-                    <div class="mt-4">
-                        <div class="flex justify-between">
-                            <label class="block text-gray-300 text-sm font-bold mb-2">Password</label>
-                            <a href="{{ route('forget.passwordform') }}" class="text-xs text-gray-300">Forget Password?</a>
+                                            <!--Submit button-->
+                                            <div class="mb-12 pb-1 pt-1 text-center">
+                                                <button
+                                                    type="submit"
+                                                    class="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-dark-3 transition duration-150 ease-in-out hover:shadow-dark-2 focus:shadow-dark-2 focus:outline-none focus:ring-0 active:shadow-dark-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+                                                    data-twe-ripple-init
+                                                    data-twe-ripple-color="light"
+                                                    style="
+                        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+                      ">
+                                                    Log in
+                                                </button>
+
+                                                <!--Forgot password link-->
+                                                <a href="{{ route('forget.passwordform') }}">Forgot password?</a>
+                                            </div>
+
+                                            <!--Register button-->
+                                            <div class="flex items-center justify-between pb-6">
+                                                <p class="mb-0 me-2">Don't have an account?</p>
+                                                <a
+                                                    href="{{ Route('register') }}"
+                                                    type="button"
+                                                    class="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-danger-50/50 hover:text-danger-600 focus:border-danger-600 focus:bg-danger-50/50 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-rose-950 dark:focus:bg-rose-950"
+                                                    data-twe-ripple-init
+                                                    data-twe-ripple-color="light">
+                                                    Register
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- Right column container with background and description-->
+                                <div
+                                    class="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-e-lg lg:rounded-bl-none"
+                                    style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)">
+                                    <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                        <h4 class="mb-6 text-xl font-semibold">
+                                            We are more than just a company
+                                        </h4>
+                                        <p class="text-sm">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit, sed do eiusmod tempor incididunt ut labore et
+                                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                            ea commodo consequat.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <input name="password"
-                            class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                            type="password" />
                     </div>
-                    <div class="mt-8">
-                        <button type="submit"
-                            class="bg-orange-300 text-white font-bold py-2 px-4 w-full rounded hover:bg-orange-100">Login</button>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="border-b w-1/5 md:w-1/4"></span>
-                        <a href="{{ Route('register') }}" class="text-xs text-gray-300 uppercase">or sign up</a>
-                        <span class="border-b w-1/5  md:w-1/4"></span>
-                    </div>
-                </form>
-
+                </div>
             </div>
-
-
-        </div>
+        </section>
     </div>
 @endsection
 

@@ -13,6 +13,9 @@
             alt="" srcset="">
         <div class="px-4 sm:px-6 customgradient lg:px-8  dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:flex relative">
+                <div class="hidden lg:block  lg:w-3/5 relative">
+                    <img src="{{ asset('assets/images/gara.png') }}" class="w-full  m-auto" />
+                </div>
                 <div class="sm:w-2/3 lg:w-1/2 sm:flex flex-col sm:relative z-50">
                     <span class="w-16 h-2 bg-orange-100 dark:bg-white mb-4 sm:mb-6"></span>
                     <h1
@@ -37,9 +40,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="hidden lg:block  lg:w-3/5 relative">
-                    <img src="{{ asset('assets/images/gara.png') }}" class="w-full  m-auto" />
-                </div>
+
             </div>
         </div>
     </main>
@@ -50,10 +51,7 @@
             alt="Background Image">
         <div class="flex relative z-50 h-full items-center justify-center customgradient  px-8 dark:bg-gray-800">
             <div class="container mx-auto flex flex-wrap items-start">
-                <div class="w-full lg:w-2/5">
-                    <img src="{{ asset('assets/images/aboutimg.png') }}" alt="Violinist" class="w-full inset-0 lg:max-w-lg"
-                        style="transform: translateY(0%);">
-                </div>
+
                 <div class="w-full lg:w-3/5 px-6 text-center lg:text-left">
                     <div class="py-12">
                         <span class="w-20 h-2 bg-orange-100 dark:bg-white mb-12 inline-block"></span>
@@ -91,6 +89,10 @@
                             </a>
                         </div>
                     </div>
+                </div>
+                <div class="w-full lg:w-2/5">
+                    <img src="{{ asset('assets/images/images9.png') }}" alt="Violinist" class="w-full inset-0 lg:max-w-lg"
+                         style="transform: translateY(0%);">
                 </div>
             </div>
         </div>

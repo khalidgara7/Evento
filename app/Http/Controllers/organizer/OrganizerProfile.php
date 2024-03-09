@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 use App\Models\Category;
 use App\Models\Event;
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 
 class OrganizerProfile extends Controller
@@ -13,36 +14,44 @@ class OrganizerProfile extends Controller
     public function index()
     {
         $organizer = auth()->user()->organizer;
-        $events = $organizer->events()->whereIn('status', ['active', 'pending'])
+
+        $events = $this->getOrganizerEvents($organizer);
+        $statistics = $this->calculateStatistics($events, $organizer);
+
+        return view("front.profile.profile",compact("events","statistics"));
+    }
+
+
+    public function getOrganizerEvents(Organizer $organizer)
+    {
+        return $organizer->events()->whereIn('status', ['active', 'pending'])
         ->orderByRaw("FIELD(status, 'active') DESC")
         ->withCount('reservations')->paginate(8);
+    }
 
-        $total_reservations = 0;
-        $totalCapacity = 0;
+
+    public function calculateStatistics($events,$organizer)
+    {
         $PercentageOfReservations = 0;
 
-
-
-        foreach ($events as $event) {
-            $totalCapacity = $totalCapacity + $event->capacity;
-            $total_reservations = $total_reservations +  $event->reservations_count;
-            $available_seats = $event->capacity - $event->reservations_count;
-
-            $event->update([
-                'availableSeats' => $available_seats
-            ]); 
-        }
+        $total_reservations = $events->sum('reservations_count');
+        $totalCapacity = $events->sum('capacity');
+        $total_events = $organizer->events->count();
+        $total_approved_events = $organizer->events->where('status','active')->count();
 
         if ($totalCapacity > 0) {
             $PercentageOfReservations = ($total_reservations / $totalCapacity) * 100;
         }
         
-        $PercentageOfReservations = round($PercentageOfReservations, 2); // ciel 0.1 -> 1  0.5 
-        $total_events = $organizer->events->count();
-        $total_approved_events = $organizer->events->where('status','active')->count();
-        return view("front.profile.profile",compact("events","total_events","total_approved_events","total_reservations","PercentageOfReservations"));
-    }
+        $PercentageOfReservations = round($PercentageOfReservations, 2); 
 
+        $statistics['total_events'] = $total_events;
+        $statistics['total_approved_events'] = $total_approved_events;
+        $statistics['total_reservations'] = $total_reservations;
+        $statistics['PercentageOfReservations'] = $PercentageOfReservations;
+    
+        return $statistics;
+    }
     public function create()
     {
         $categories = Category::all();

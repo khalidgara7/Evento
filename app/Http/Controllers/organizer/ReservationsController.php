@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\organizer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
 {
-
-
-
 
     public function bookEvent(string $id)
     {
@@ -37,11 +35,22 @@ class ReservationsController extends Controller
         if ($event->reservation_type === "auto") {
             $reservation->status = "confirmed";
             $reservation->save();
+            $this->updateAvaliableSeats($event);
             return redirect()->back()->with("success", "You are booked for this event.");
+
         } else {
             $reservation->status = "pending";
             $reservation->save();
             return redirect()->back()->with("success", "Your request for reservation has been sent to the organizer.");
         }
+    }
+
+
+    public function updateAvaliableSeats(Event $event)
+    {
+        $available_seats = $event->capacity - 1;
+        $event->update([
+            'availableSeats' => $available_seats
+        ]);
     }
 }

@@ -9,7 +9,7 @@ class Event extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "title",'description','category_id','capacity','location','organizer_id','image','date',
+        "title",'description','category_id','capacity','location','organizer_id','image','date','status','availableSeats','reservation_type'
     ] ;
 
     public function category()
@@ -32,8 +32,24 @@ class Event extends Model
         return $this->belongsToMany(User::class, 'reservations')->withPivot('number_of_seats', 'status');
     }
 
-    public function image()
+
+    public function CheckIfReservationExist($user, $event_id)
     {
-        return $this->hasOne(EventImage::class);
+        $userReservation = $user->reservations()->where('event_id', $event_id)->first();
+        if ($userReservation) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function CheckIfAvaliableSeats($event, $user)
+    {
+        $available_seats = $event->capacity - $event->reservations->where('status', 'confirmed')->count();
+        if ($available_seats > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

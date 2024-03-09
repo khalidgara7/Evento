@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
+    //
+
     protected $userRepository;
 
     public function __construct(UserRepositoryInterface $userRepository)
@@ -29,18 +32,22 @@ class RegisterController extends Controller
         $user = $this->userRepository->createUser($form);
 
         if ($user) {
-            auth()->login($user);
-
-            if ($user->isOrganizer()) {
+            auth()->login($user); 
+    
+            if ($user->isAdmin()) {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->isOrganizer()) {
                 return redirect()->route('organizer.form', $user->id);
             } elseif ($user->isSpectator()) {
                 return redirect('/');
             }
-
+    
         } else {
             return back()->with('error', 'Registration failed.');
         }
-
-
+        
     }
+
+
+
 }

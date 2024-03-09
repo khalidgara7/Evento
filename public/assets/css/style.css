@@ -1,17 +1,18 @@
 .customgradient {
 
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(155,31,218,0.9192927170868347) 30%, rgba(42,122,90,1) 99%);
+    background: rgb(82, 180, 160);
+    background: linear-gradient(90deg, rgb(197, 168, 211) 0%, rgb(90, 88, 136) 21%);
 }
 
 .customgradientrev {
 
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(155,31,218,0.9192927170868347) 30%, rgba(42,122,90,1) 99%);}
+    background: rgb(49,43,120);
+    background: linear-gradient(90deg, rgba(49,43,120,0.9585084033613446) 0%, rgba(26,27,81,0.9220938375350141) 29%, rgba(221,53,91,0.9164915966386554) 75%, rgba(249,88,60,0.9304971988795518) 100%);
+}
 
 .navbargradient {
     background: rgb(0, 1, 73);
-    background: linear-gradient(312deg, rgba(0, 1, 73, 1) 12%, rgba(0, 1, 36, 1) 100%);
+    background: linear-gradient(312deg, rgb(36, 0, 4) 12%, rgba(255, 255, 255, 0.47) 100%);
 }
 
 .darkgradient {

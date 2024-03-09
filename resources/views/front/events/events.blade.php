@@ -19,15 +19,34 @@
 
             </div>
 
-            <div
-                class=" flex px-1 py-1 rounded-full border border-gray-100 overflow-hidden max-w-md mx-auto font-[sans-serif]">
-                <input type='email'
-                    class="w-full border-none bg-transparent text-white outline-none hover:select-none  pl-4 text-sm"
-                    placeholder='Search Something...' />
-                <button type='button'
-                    class="bg-orange-600 hover:bg-blue-700 transition-all text-white text-sm rounded-full px-5 py-2.5">Search</button>
+
+            <div id='search-form'>
+                <label
+                    class="mx-auto mt-8 relative bg-white min-w-sm max-w-4xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
+                    for="search-bar">
+                    <input id="search-bar" placeholder="your keyword here" name="search"
+                        class="px-6 py-2 w-2/3 max-w-2xl rounded-md flex-1 outline-none bg-white" required="">
+                    <button type="submit"
+                        class="w-1/3 md:w-auto px-6 py-3 bg-primary-300 border-primary-100 text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all">
+                        <div class="flex items-center transition-all opacity-1">
+                            <span class="text-sm font-semibold whitespace-nowrap truncate mx-auto">
+                                Search
+                            </span>
+                        </div>
+                    </button>
+
+                    <select id="categories" name="categorie"
+                        class="w-1/3 md:w-auto px-6 py-2 text-primary-300 border-primary-100 fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all">
+                        <option class="text-primary-300" value="" selected="">All</option>
+                        @foreach ($categories as $categorie)
+                            <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                        @endforeach
+                    </select>
+
+                </label>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 max-md:max-w-lg mx-auto">
+
+            <div id="event_container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 max-md:max-w-lg mx-auto">
                 @foreach ($events as $event)
                     <div
                         class="bg-gray-500 mb-6  cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative group">
@@ -50,9 +69,18 @@
                 @endforeach
 
             </div>
+            <div class="m-4">
+                {{ $events->links() }}
+            </div>
         </div>
     </div>
 @endsection
 
 @section('scripts')
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="{{ URL::asset('assets/js/livesearch.js') }}"></script>
+<script src="{{ URL::asset('assets/js/filters.js') }}"></script>
+
+
 @endsection

@@ -15,10 +15,10 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && $request->user()->isAdmin()) {
-            return $next($request);
+        if (!auth()->user()->isAdmin()) {
+            return redirect()->route('home')->with('error', 'Unauthorized access');
         }
 
-        return redirect('/')->with('error', 'You do not have permission to access this page.');
+        return $next($request);
     }
 }

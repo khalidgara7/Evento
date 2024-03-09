@@ -31,7 +31,7 @@
 
                         <!-- badge -->
                         <span
-                            class="inline-block fas text-gray-100 fa-certificate fa-lg
+                            class="inline-block fas text-gray-100 fa-certificate fa-lg 
                                  relative mr-6 text-xl transform -translate-y-2"
                             aria-hidden="true">
                             <i
@@ -152,7 +152,7 @@
 
                 <!-- user following for mobile only -->
                 <ul
-                    class="flex md:hidden justify-around space-x-8 border-t
+                    class="flex md:hidden justify-around space-x-8 border-t 
                   text-center p-2 text-gray-600 leading-snug text-sm">
                     <li>
                         <span class="font-semibold text-gray-200 block">136</span>
@@ -171,7 +171,7 @@
 
                 <!-- insta freatures -->
                 <ul
-                    class="flex items-center text-gray-200 justify-around md:justify-center space-x-12
+                    class="flex items-center text-gray-200 justify-around md:justify-center space-x-12  
                       uppercase tracking-widest font-semibold text-xs
                       border-t">
                     <!-- posts tab is active -->
@@ -249,10 +249,10 @@
 
 
             </div>
-{{--            pagination--}}
             <div class="m-4 p-4">
                 {{ $events->links() }}
             </div>
+        </div>
         </div>
     </main>
 @endsection

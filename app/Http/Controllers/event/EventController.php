@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::paginate(3);
+        $events = Event::paginate(10);
         return view('back.events.index', compact('events'));
     }
 
@@ -27,8 +27,7 @@ class EventController extends Controller
     {
         $categories = Category::all();
 
-        $organizers = User::whereHas('roles', function ($query)
-        {
+        $organizers = User::whereHas('roles', function ($query) {
             $query->where('name', 'organizer');
         })->get();
         return view('back.events.create',compact('categories','organizers'));
@@ -61,7 +60,7 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::find($id);
-        return view('back.events.show', compact('event'));
+        return view('back.events.show', compact(''));
     }
 
     /**
@@ -111,8 +110,9 @@ class EventController extends Controller
 
     public function fetchEvents()
     {
-        $events = Event::paginate(10);
-        return view('front.events.events', compact('events'));
+        $events = Event::where('status', 'active')->paginate(8);
+        $categories = Category::all();
+        return view('front.events.events', compact('events','categories'));
     }
 
     public function ShowEvent($eventId)

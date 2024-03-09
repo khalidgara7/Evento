@@ -15,6 +15,10 @@ class OrganizerMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!auth()->user()->isOrganizer()) {
+            return redirect()->route('home')->with('error', 'Unauthorized access');
+        }
+
         return $next($request);
     }
 }

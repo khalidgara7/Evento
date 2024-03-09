@@ -2,7 +2,7 @@
 
     <nav class="relative px-4 py-4 flex justify-between items-center navbargradient">
         <a class="text-3xl font-bold leading-none" href="#">
-            <img src="{{ URL::asset('assets/images/logo2.png') }}" style="width: 7rem" alt="">
+            <img src="{{ URL::asset('assets/images/eventologo.png') }}" style="width: 7rem" alt="">
         </a>
         <div class="lg:hidden">
             <button class="navbar-burger flex items-center text-orange-100 p-3">
@@ -22,7 +22,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-orange-100 font-bold" href="{{ route('event.all') }}">Events</a></li>
+            <li><a class="text-sm text-gray-200 hover:text-gray-500" href="{{ route('event.all') }}">Events</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -30,7 +30,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-gray-200 hover:text-gray-500" href="{{ route('profile.index') }}">My Events</a></li>
+            <li><a class="text-sm text-gray-200 hover:text-gray-500" href="{{ route('profile.index') }}">Profile</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -97,7 +97,7 @@
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                    <img src="{{ URL::asset('assets/images/logo1-01.png') }}" style="width: 7rem" alt="">
+                    <img src="{{ URL::asset('assets/images/eventologo.png') }}" style="width: 7rem" alt="">
                 </a>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-200 cursor-pointer hover:text-gray-500"

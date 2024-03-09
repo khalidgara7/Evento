@@ -1,8 +1,8 @@
 <aside id="sidebar"
-    class="fixed hidden z-30 top-0 left-0 w-64 pt-10 shadow-md h-screen transition-transform -translate-x-full sm:translate-x-0"
+    class="fixed top-0 left-0 z-30 hidden w-64 h-screen pt-10 transition-transform -translate-x-full shadow-md sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full px-3 overflow-y-auto shadow-md navbargradient">
-        <ul class="space-y-2 font-medium mt-16">
+        <ul class="mt-16 space-y-2 font-medium">
             <li>
                 <a href="/"
                     class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-100 group">
@@ -34,7 +34,7 @@
                         <path fill="none" stroke="currentColor"
                             d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
                     </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">Events</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Events</span>
                 </a>
             </li>
             <li>
@@ -44,36 +44,14 @@
                         <path fill="none" stroke="currentColor"
                             d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
                     </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">Categories</span>
-                    <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span> -->
+                    <span class="flex-1 ms-3 whitespace-nowrap">Categories</span>
+                    <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full ms-3">3</span> -->
                 </a>
             </li>
 
-            <li>
-                <a href=""
-                    class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-100 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor"
-                            d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
-                    </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">skills</span>
-                    <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span> -->
-                </a>
-            </li>
-            <li>
-                <a href=""
-                    class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-100 group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path fill="none" stroke="currentColor"
-                            d="M17.5 4.23V8m0 2v4m0 2v3.77M.5 3.5v6a2.5 2.5 0 0 1 0 5v6H1l3.04-.434a56.277 56.277 0 0 1 15.92 0L23 20.5h.5v-6a2.5 2.5 0 0 1 0-5v-6H23l-3.04.434a56.285 56.285 0 0 1-15.92 0L1 3.5z" />
-                    </svg>
-                    <span class="flex-1 ms-3  whitespace-nowrap">Applications History</span>
-                    <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span> -->
-                </a>
-            </li>
 
             <li>
-                <a href="" class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-100 group">
+                <a href="route('user.index')" class="flex items-center p-2 text-gray-200 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-200"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path
