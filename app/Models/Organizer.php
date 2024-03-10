@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Organizer extends Model
 {
     use HasFactory;
+    use HasFactory;
     protected $fillable = [
         "cin","phone_number","profile_picture","bio","user_id"
     ] ;
@@ -21,6 +22,6 @@ class Organizer extends Model
     {
         return $this->hasMany(Event::class, 'organizer_id', 'user_id');
     }
-    
+
 
 }

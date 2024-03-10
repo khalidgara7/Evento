@@ -2,7 +2,7 @@
 
     <nav class="relative px-4 py-4 flex justify-between items-center navbargradient">
         <a class="text-3xl font-bold leading-none" href="#">
-            <img src="{{ URL::asset('assets/images/eventologo.png') }}" style="width: 7rem" alt="">
+            <img src="{{ URL::asset('assets/images/evento_logo.png') }}" style="width: 7rem" alt="">
         </a>
         <div class="lg:hidden">
             <button class="navbar-burger flex items-center text-orange-100 p-3">
@@ -53,10 +53,10 @@
 
         </ul>
 
-        <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-orange-400 text-sm text-black font-bold  rounded-xl transition duration-200"
-            href="{{ Route('registerform') }}">Sign up</a>
+
         <!--Profile-->
-        <a class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7  " href="">
+        <a class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7 hover:bg-orange-400 hidden rounded-xl lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 "
+           href="{{ Route('registerform') }}">
             <span class="[&>svg]:w-5">
                 <svg xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -67,7 +67,8 @@
         </a>
         <!--Profile-->
 
-        <a class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7  " href="{{ Route('loginform') }}">
+        <a class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7 hover:bg-orange-400 rounded-xl lg:inline-block  lg:mr-3 py-2 px-6   "
+           href="{{ Route('loginform') }}">
             <span class="[&>svg]:w-5">
                 <svg xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -78,7 +79,7 @@
         </a>
         <form class="mr-4 mt-1.5" action="{{ Route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7  "
+            <button type="submit" class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7 hover:bg-orange-400 rounded-xl lg:inline-block  lg:mr-3 py-2 px-6  "
                 href="{{ Route('loginform') }}">
                 <span class="[&>svg]:w-5">
                     <svg xmlns="http://www.w3.org/2000/svg"

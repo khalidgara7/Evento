@@ -15,6 +15,7 @@ use App\Http\Controllers\organizer\ReservationsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\StoreFiltersController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UsersController;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
@@ -62,7 +63,6 @@ Route::post('/reset', [ResetPasswordController::class, 'GetnewPassword'])->name(
 Route::get('/google/redirect', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 
-
 Route::get('auth/gmail', 'Auth\LoginController@redirectToGmail');
 Route::get('auth/gmail/callback', 'Auth\LoginController@handleGmailCallback');
 
@@ -81,7 +81,7 @@ Route::get('/events', [EventController::class, 'fetchEvents'])->name('event.all'
 
 
 
-
+// Route search and filter
 Route::post('/searchBycategorie', [StoreFiltersController::class, 'filterByCategorie'])->name('searchBycategorie');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
@@ -121,5 +121,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/ticket/{reservation}/ticket', [TicketController::class,'createTicket'])->name('generate.ticket');
     Route::get('/booking/{event}/event', [ReservationsController::class, 'bookEvent'])->name('booking.event');
 });

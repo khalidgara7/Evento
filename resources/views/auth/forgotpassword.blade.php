@@ -10,11 +10,11 @@
 @section('content')
     <div class="py-16">
         <div class="flex  rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-            <img src=" {{ URL::asset('assets/images/registerimg.png') }}" class="hidden lg:block lg:w-1/2 bg-cover">
+            <img src=" {{ URL::asset('assets/images/registerimg.jpg') }}" class="hidden lg:block lg:w-1/2 bg-cover">
 
 
                 <div class="w-full bg-dark-200 p-8 lg:w-1/2">
-                    <h2 class="text-2xl font-semibold text-gray-200 text-center">Santoryo</h2>
+                    <h2 class="text-2xl font-semibold text-gray-800 text-center">Evento</h2>
                     <p class="text-xl text-gray-300 text-center">Use your email to reset your password!</p>
                     <a href="#"
                         class="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-orange-100">

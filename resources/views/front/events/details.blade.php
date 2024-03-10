@@ -10,7 +10,7 @@
 @section('content')
     <div class="text-center ">
         <h2
-            class="text-3xl mb-4  mt-8 font-extrabold text-white inline-block relative after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-orange-500 after:rounded-full">
+            class="relative inline-block mt-8 mb-4 text-3xl font-extrabold text-white after:absolute after:w-4/6 after:h-1 after:left-0 after:right-0 after:-bottom-4 after:mx-auto after:bg-orange-500 after:rounded-full">
             Event Detail
         </h2>
 
@@ -28,14 +28,14 @@
                     <div class="mb-12 lg:mb-0">
                         <!-- Container for demo purpose -->
                         @if (session('error'))
-                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                            <div class="px-4 py-3 mb-4 text-red-700 bg-red-100 border border-red-400 rounded">
                                 <strong class="font-bold">Error!</strong>
                                 <span class="block sm:inline">{{ session('error') }}</span>
                             </div>
                         @endif
 
                         @if (session('success'))
-                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                            <div class="px-4 py-3 mb-4 text-green-700 bg-green-100 border border-green-400 rounded">
                                 <strong class="font-bold">Success!</strong>
                                 <span class="block sm:inline">{{ session('success') }}</span>
                             </div>
@@ -43,10 +43,10 @@
 
                         <div
                             class="relative z-[1] block rounded-lg navbargradient px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
-                            <h2 class="mb-4 text-white text-3xl font-bold">{{ $event->title }}</h2>
+                            <h2 class="mb-4 text-3xl font-bold text-white">{{ $event->title }}</h2>
                             <div
-                                class="mx-auto mb-2 text-neutral-200 flex flex-col md:flex-row md:justify-around lg:justify-between">
-                                <p class="mx-auto mb-4 text-sm flex items-center md:mx-0 md:mb-2 lg:mb-0">
+                                class="flex flex-col mx-auto mb-2 text-neutral-200 md:flex-row md:justify-around lg:justify-between">
+                                <p class="flex items-center mx-auto mb-4 text-sm md:mx-0 md:mb-2 lg:mb-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="12" width="10.5"
                                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                         <path fill="#ffffff"
@@ -64,9 +64,9 @@
                             </p>
 
                             <div
-                                class="mx-auto text-neutral-200 mb-8 flex flex-col md:flex-row md:justify-around lg:justify-between">
+                                class="flex flex-col mx-auto mb-8 text-neutral-200 md:flex-row md:justify-around lg:justify-between">
 
-                                <p class="mx-auto mb-4 flex items-center md:mx-0 md:mb-2 lg:mb-0 ">
+                                <p class="flex items-center mx-auto mb-4 md:mx-0 md:mb-2 lg:mb-0 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="14" width="11"
                                         viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                         <path fill="#ffffff"
@@ -78,9 +78,9 @@
                                     </span>
                                 </p>
 
-                                <p class="mx-auto mb-4 text-sm flex items-center md:mx-0 md:mb-2 lg:mb-0">
+                                <p class="flex items-center mx-auto mb-4 text-sm md:mx-0 md:mb-2 lg:mb-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" class="mr-2 h-5 w-5">
+                                        stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -91,7 +91,7 @@
                                 </p>
 
 
-                                <p class="mx-auto mb-2 flex items-center md:mx-0 lg:mb-0">
+                                <p class="flex items-center mx-auto mb-2 md:mx-0 lg:mb-0">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14.5"
                                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                                         <path fill="#ffffff"
@@ -119,7 +119,7 @@
                                 Vivamus a orci maximus, dignissim ligula a, congue dui. Morbi
                                 et lectus sit amet neque luctus viverra.
                             </p>
-                            <div class="mt-4 flex items-center gap-x-2">
+                            <div class="flex items-center mt-4 gap-x-2">
                                 <img class="object-cover w-8 h-8 rounded-lg"
                                     src="{{ asset('storage/images/' . $event->category->image) }}" alt="">
 
@@ -129,21 +129,30 @@
                                     </h1>
                                 </div>
                             </div>
-
-                            <div class="mt-12 flex justify-end">
-                                <a href="{{ Route('booking.event', $event->id) }}"
-                                    class="bg-[#55F5A3] hover:bg-green-400 transition-all text-[#333] font-bold text-sm rounded-full px-12 py-3">
-                                    Book Now
-                                </a>
+                            <div class="flex justify-end mt-12">
+                                @if (!session('alreadyReserved'))
+                                    <a href="{{ Route('booking.event', $event->id) }}"
+                                        class="bg-[#55F5A3] hover:bg-green-400 transition-all text-[#333] font-bold text-sm rounded-full px-12 py-3">
+                                        Book Now
+                                    </a>
+                                @else
+                                    <span
+                                        class="bg-gray-100 hover:bg-green-400 transition-all text-[#333] font-bold text-sm rounded-full px-12 py-3">
+                                        You already Booked !
+                                    </span>
+                                @endif
                             </div>
 
+                            <div>
+
+                            </div>
                         </div>
 
                     </div>
 
                     <div>
                         <img src="{{ asset('storage/images/' . $event->image) }}"
-                            class="w-full  rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+                            class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
                     </div>
                 </div>
             </div>

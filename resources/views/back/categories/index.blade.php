@@ -12,19 +12,47 @@
 @endsection
 
 @section('content')
-    <main id="main" class=" pt-16 px-28">
-        <h2 class="my-6 text-4xl font-semibold text-center font-poppins tracking-widest text-gray-700 dark:text-gray-200">
+    <main id="main" class="pt-16 px-28">
+        <h2 class="my-6 text-4xl font-semibold tracking-widest text-center text-gray-700 font-poppins dark:text-gray-200">
             <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Managment
         </h2>
+
+        <div class="flex items-center bg-gray-100 dark:bg-gray-900">
+            <div class="container max-w-6xl px-5 mx-auto my-8">
+                <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+
+                    <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
+                        <div>
+                            <div class="text-sm text-gray-400 ">Total Categories</div>
+                            <div class="flex items-center pt-1">
+                                <div class="text-xl font-medium text-indigo-400 ">
+                                    {{ $total_categories }}</div>
+                            </div>
+                        </div>
+                        <div class="text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 47 46">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M41.536 30.456a19.21 19.21 0 01-5.675 7.4 19.771 19.771 0 01-8.557 3.937c-3.138.608-6.38.455-9.444-.447a19.673 19.673 0 01-8.129-4.725 19.1 19.1 0 01-4.92-7.902 18.775 18.775 0 01-.564-9.237 18.98 18.98 0 013.923-8.419 19.538 19.538 0 017.497-5.639">
+                                </path>
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M43.083 23c0-2.517-.506-5.01-1.49-7.335a19.142 19.142 0 00-4.246-6.218 19.617 19.617 0 00-6.353-4.155A19.953 19.953 0 0023.5 3.833V23h19.583z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <a href="{{ route('category.create') }}"
-            class="px-4 py-2 my-4 bg-orange rounded customgradient  text-gray-100 hover:bg-orange-100 focus:outline-none transition-colors">
+            class="px-4 py-2 my-4 text-gray-100 transition-colors rounded bg-orange customgradient hover:bg-orange-100 focus:outline-none">
             Add a Category
         </a>
 
 
-        <div class="w-full  py-2 overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full py-2 overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
-                <table class="w-full  my-4 whitespace-no-wrap">
+                <table class="w-full my-4 whitespace-no-wrap">
                     <thead>
                         <tr
                             class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
@@ -41,8 +69,7 @@
                                 <td class="px-4 py-3 text-sm">
                                     <div class="flex items-center gap-x-2">
                                         <img class="object-cover w-8 h-8 rounded-full"
-                                            src="{{ asset('storage/images/' . $category->image) }}"
-                                            alt="">
+                                            src="{{ asset('storage/images/' . $category->image) }}" alt="">
                                         <div>
                                             <h2 class="text-sm font-medium text-gray-800 dark:text-white ">
                                                 {{ $category->name }}
@@ -63,7 +90,7 @@
 
                                 <td class="px-4 py-3">
                                     <div class="flex items-center space-x-4 text-sm">
-                                        <a href="{{ route('category.edit',[$category->id] )}}">
+                                        <a href="{{ route('category.edit', [$category->id]) }}">
                                             <button
                                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                                 aria-label="Edit">
@@ -76,7 +103,7 @@
                                             </button>
                                         </a>
 
-                                        <form action="{{ Route('category.destroy',$category) }}" method="POST">
+                                        <form action="{{ Route('category.destroy', $category) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
@@ -107,7 +134,6 @@
             {{ $categories->links() }}
         </div>
     </main>
-
 @endsection
 
 @section('scripts')

@@ -29,10 +29,11 @@ class ResetPasswordController extends Controller
             $user->password = Hash::make($request->password);
             $user->remember_token = Str::random(30);
             $user->save();
-            redirect('auth.login')->with('success','pasword updated');
+            redirect('auth.login')->with('success','password updated');
         }else{
             return redirect()->back()->with('error',"password and confirm password must match");
         }
+        return view('login');
     }
-    
+
 }

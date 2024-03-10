@@ -21,8 +21,5 @@ class Reservation extends Model
         return $this->belongsTo(Event::class);
     }
 
-    public function tickets()
-    {
-        return $this->hasMany(Ticket::class);
-    }
+
 }

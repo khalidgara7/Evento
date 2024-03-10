@@ -7,17 +7,17 @@
                 <a href="#" class="flex items-center justify-center font-bold body-font text-gray-200 title-font md:justify-start">
                     EasyEvent
                 </a>
-                
-                <p class="mt-2 text-sm text-gray-500">Design, Code and Ship!</p>
+
+                <p class="mt-2 text-sm text-gray-900">Design, Code and Ship!</p>
                 <div class="mt-4">
                     <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
-                        <a class="text-gray-500 cursor-pointer hover:text-gray-200">
+                        <a class="text-gray-900 cursor-pointer hover:text-gray-200">
                             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 class="w-5 h-5" viewBox="0 0 24 24">
                                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                             </svg>
                         </a>
-                        <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-200">
+                        <a class="ml-3 text-gray-900 cursor-pointer hover:text-gray-200">
                             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 class="w-5 h-5" viewBox="0 0 24 24">
                                 <path
@@ -25,14 +25,14 @@
                                 </path>
                             </svg>
                         </a>
-                        <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-200">
+                        <a class="ml-3 text-gray-900 cursor-pointer hover:text-gray-200">
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                             </svg>
                         </a>
-                        <a class="ml-3 text-gray-500 cursor-pointer hover:text-gray-200">
+                        <a class="ml-3 text-gray-900 cursor-pointer hover:text-gray-200">
                             <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
                                 <path stroke="none"
@@ -49,13 +49,13 @@
                     <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-200 uppercase title-font">About</h2>
                     <nav class="mb-10 list-none">
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Company</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Company</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Careers</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Careers</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Blog</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Blog</a>
                         </li>
                     </nav>
                 </div>
@@ -63,13 +63,13 @@
                     <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-200 uppercase title-font">Support</h2>
                     <nav class="mb-10 list-none">
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Contact Support</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Contact Support</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Help Resources</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Help Resources</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Release Updates</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Release Updates</a>
                         </li>
                     </nav>
                 </div>
@@ -78,13 +78,13 @@
                     </h2>
                     <nav class="mb-10 list-none">
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Terms &amp; Privacy</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Terms &amp; Privacy</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Pricing</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">Pricing</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">FAQ</a>
+                            <a class="text-gray-900 cursor-pointer hover:text-gray-200">FAQ</a>
                         </li>
                     </nav>
                 </div>
@@ -92,13 +92,13 @@
                     <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-200 uppercase title-font">Contact</h2>
                     <nav class="mb-10 list-none">
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Send a Message</a>
+                            <a class="text-gray-700 cursor-pointer hover:text-gray-200">Send a Message</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">Request a Quote</a>
+                            <a class="text-gray-700 cursor-pointer hover:text-gray-200">Request a Quote</a>
                         </li>
                         <li class="mt-3">
-                            <a class="text-gray-500 cursor-pointer hover:text-gray-200">+123-456-7890</a>
+                            <a class="text-gray-700 cursor-pointer hover:text-gray-200">+123-456-7890</a>
                         </li>
                     </nav>
                 </div>
@@ -106,7 +106,7 @@
         </div>
         <div class="navbargradient bg-gray-900 ">
             <div class="container px-5 py-4 mx-auto">
-                <p class="text-sm text-gray-200 capitalize xl:text-center">© 2020 All rights reserved </p>
+                <p class="text-sm text-gray-200 capitalize xl:text-center">© 2024 All rights reserved </p>
             </div>
         </div>
     </footer>

@@ -11,14 +11,41 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+
+
+    public function AdminStatistics()
+    {
+        $status_statistics = [
+            'total_events' => 0,
+            'total_accepted_events' => 0,
+            'total_cancelled_events' => 0,
+            'total_pending_events' => 0,
+        ];
+
+        $total_events = Event::count();
+        $total_accepted_events = Event::where('status','active')->count();
+        $total_cancelled_events = Event::where('status','cancelled')->count();
+        $total_pending_events = Event::where('status','pending')->count();
+
+        $status_statistics['total_events'] = $total_events  ;
+        $status_statistics['total_accepted_events'] = $total_accepted_events  ;
+        $status_statistics['total_cancelled_events'] = $total_cancelled_events  ;
+        $status_statistics['total_pending_events'] = $total_pending_events  ;
+
+        return $status_statistics;
+    }
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $events = Event::paginate(10);
-        return view('back.events.index', compact('events'));
+        $status_statistics = $this->AdminStatistics();
+        return view('back.events.index', compact('events', 'status_statistics'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,7 +87,7 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::find($id);
-        return view('back.events.show', compact(''));
+        return view('back.events.show', compact('event'));
     }
 
     /**
@@ -118,6 +145,12 @@ class EventController extends Controller
     public function ShowEvent($eventId)
     {
         $event = Event::findOrFail($eventId);
-        return view('front.events.details', compact('event'));
+        $user = auth()->user();
+        $alreadyReserved = $event->CheckIfReservationExist($user, $event->id);
+
+        return view('front.events.details', compact('event','alreadyReserved'));
     }
+
+
+
 }
