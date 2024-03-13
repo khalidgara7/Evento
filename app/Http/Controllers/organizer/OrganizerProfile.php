@@ -14,11 +14,19 @@ class OrganizerProfile extends Controller
     public function index()
     {
         $organizer = auth()->user()->organizer;
+        if(auth()->user()->organizer)
+        {
+            $events = $this->getOrganizerEvents($organizer);
+            $statistics = $this->calculateStatistics($events, $organizer);
 
-        $events = $this->getOrganizerEvents($organizer);
-        $statistics = $this->calculateStatistics($events, $organizer);
+            return view("front.profile.profile",compact("events","statistics"));
+        }else{
+            $reservations = auth()->user()->reservations()->paginate(8);
+            // dd($reservations);
+            return view("front.profile.profile",compact("reservations",));
 
-        return view("front.profile.profile",compact("events","statistics"));
+        }
+
     }
 
 
@@ -42,14 +50,14 @@ class OrganizerProfile extends Controller
         if ($totalCapacity > 0) {
             $PercentageOfReservations = ($total_reservations / $totalCapacity) * 100;
         }
-        
-        $PercentageOfReservations = round($PercentageOfReservations, 2); 
+
+        $PercentageOfReservations = round($PercentageOfReservations, 2);
 
         $statistics['total_events'] = $total_events;
         $statistics['total_approved_events'] = $total_approved_events;
         $statistics['total_reservations'] = $total_reservations;
         $statistics['PercentageOfReservations'] = $PercentageOfReservations;
-    
+
         return $statistics;
     }
     public function create()
@@ -75,6 +83,6 @@ class OrganizerProfile extends Controller
             return back()->withInput()->with('error', 'Failed to create the category.');
         }
     }
-    
-    
+
+
 }

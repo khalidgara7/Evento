@@ -1,23 +1,14 @@
 
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
 $(document).ready(function () {
     $('#categories').change(function () {
-        var categorieId = $(this).val();
-        console.log(categorieId);
+        var categoryId = $(this).val();
         $.ajax({
-            type: 'POST',
+            type: 'get',
             url: '/searchBycategorie',
             data: {
-                categorie: categorieId
+                categorie: categoryId
             },
             success: function (response) {
-                console.log(response.events);
                 displayEvents(response.events);
             },
             error: function (error) {
@@ -31,7 +22,7 @@ $(document).ready(function () {
 
 function displayEvents(events) {
     let articleContainer = document.getElementById("event_container");
-    articleContainer.innerHTML = "";
+    articleContainer.innerHTML = ""; // da_tkhewo
     events.forEach(event => {
         articleContainer.innerHTML += `
     <div

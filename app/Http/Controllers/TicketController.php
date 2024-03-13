@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
-use Codedge\Fpdf\Fpdf\Fpdf;
+use Fpdf\Fpdf;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\Uid\Factory\RandomBasedUuidFactory;
@@ -28,7 +28,7 @@ class TicketController extends Controller
         $pdf = new Fpdf('L', 'mm', [200, 100]);
         $pdf->AddPage();
 
-        $ticketImagePath = storage_path('app/public/tickets/ticket.png');
+        $ticketImagePath = storage_path('app/public/images/ticket.png');
         $pdf = new Fpdf('L', 'mm', [200, 100]);
         $pdf->AddPage();
 

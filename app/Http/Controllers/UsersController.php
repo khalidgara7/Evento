@@ -16,7 +16,7 @@ class UsersController extends Controller
     {
         $users = User::with('roles')->paginate(10);
         $roles = Role::whereIn('name', ['organizer', 'admin', 'spectator'])->get();
-
+//        dd($roles,$users);
         // dd($users);
         return view('back.users.index', compact('users','roles'));
     }
@@ -34,7 +34,14 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($data);
+//        $data = $request->validated();
+//        $user = User::create($data);
+//        if ($user){
+//            return redirect()->route('user.create')->with('success','User created successfully');
+//        }else{
+//            return back()->withInput()->with('error', 'Failed to create the user.');
+//        }
     }
 
     /**

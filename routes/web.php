@@ -50,14 +50,11 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('registerform');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
-
-
 // Password Reset Routes...
 Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('forget.passwordform');
 Route::post('/password/email', [ForgotPasswordController::class, 'ResetPasswordRequest'])->name('forgetpassword.request');
 Route::get('reset/{token}', [ResetPasswordController::class, 'reset'])->name('password.reset');
 Route::post('/reset', [ResetPasswordController::class, 'GetnewPassword'])->name('password.postReset');
-
 
 // google Routes...
 Route::get('/google/redirect', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
@@ -66,25 +63,17 @@ Route::get('/google/callback', [App\Http\Controllers\GoogleLoginController::clas
 Route::get('auth/gmail', 'Auth\LoginController@redirectToGmail');
 Route::get('auth/gmail/callback', 'Auth\LoginController@handleGmailCallback');
 
-
-
-
-
-
 // home Routes...
 Route::get('/', [UpcomingEventsController::class, 'index'])->name('home');
-Route::get('/event/{event}/show', [EventController::class, 'ShowEvent'])->name('event.details');
-
+Route::get('/event/{event}/show', [EventController::class, 'ShowEvent'])->name('event.details')
+    ->middleware(['auth']);
+Route::get('/profile', [OrganizerProfile::class, 'index'])->name('profile.index')->middleware(['auth']);
 // all events Routes...
 Route::get('/events', [EventController::class, 'fetchEvents'])->name('event.all');
 
-
-
-
 // Route search and filter
-Route::post('/searchBycategorie', [StoreFiltersController::class, 'filterByCategorie'])->name('searchBycategorie');
+Route::get('/searchBycategorie', [StoreFiltersController::class, 'filterByCategorie'])->name('searchBycategorie');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-
 
 Route::middleware(['auth', 'organizer'])->group(function () {
 
@@ -97,11 +86,9 @@ Route::middleware(['auth', 'organizer'])->group(function () {
     Route::get('/reservations/{reservations}/cancel', [EventReservationController::class, 'cancelReservation'])->name('reservation.cancel');
 
     // profile Routes...
-    Route::get('/profile', [OrganizerProfile::class, 'index'])->name('profile.index');
     Route::get('create/organizerevent', [OrganizerProfile::class, 'create'])->name('create.event');
     Route::post('store/event', [OrganizerProfile::class, 'store'])->name('store.event');
 });
-
 
 Route::middleware(['auth', 'admin'])->group(function () {
     // category Routes...
@@ -115,6 +102,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::resource('user', UsersController::class);
     Route::post('/add-remove-role', [UsersController::class, 'addRemoveRole'])->name('add-remove-role');
+
 
 
 });

@@ -11,12 +11,15 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $search = $request->input("search");
+        $categoryId = $request->input("categoryId");
+
         $events = Event::where('title', 'like', '%' . $search . '%')
-                        ->with('organizer.user:id,firstname,lastname')
-                        ->get();
+                        ->with('organizer.user:id,firstname,lastname');
+        if ($categoryId != null)
+            $events->where('category_id', '=', $categoryId);
 
         return response()->json([
-            'events' => $events,
+            'events' => $events->get(),
         ]);
     }
 }

@@ -41,7 +41,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::paginate(10);
+        $events = Event::paginate(5);
         $status_statistics = $this->AdminStatistics();
         return view('back.events.index', compact('events', 'status_statistics'));
     }
@@ -59,6 +59,8 @@ class EventController extends Controller
         })->get();
         return view('back.events.create',compact('categories','organizers'));
     }
+
+//     select * from User innerjoin on roles where name= 'organizer'
 
     /**
      * Store a newly created resource in storage.
@@ -142,7 +144,7 @@ class EventController extends Controller
         return view('front.events.events', compact('events','categories'));
     }
 
-    public function ShowEvent($eventId)
+    public function showEvent($eventId)
     {
         $event = Event::findOrFail($eventId);
         $user = auth()->user();

@@ -12,7 +12,7 @@ class ReservationsController extends Controller
 
     public function bookEvent(string $id)
     {
-        $event = \App\Models\Event::find($id);
+        $event = Event::find($id);
         $user = auth()->user();
 
         if (!$event) {
@@ -31,7 +31,7 @@ class ReservationsController extends Controller
         $reservation = new Reservation;
         $reservation->user_id = $user->id;
         $reservation->event_id = $event->id;
-        
+
         if ($event->reservation_type === "auto") {
             $reservation->status = "confirmed";
             $reservation->save();
@@ -52,5 +52,6 @@ class ReservationsController extends Controller
         $event->update([
             'availableSeats' => $available_seats
         ]);
+
     }
 }

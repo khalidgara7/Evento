@@ -10,7 +10,7 @@
 
 @section('content')
     <div class=" py-16 ">
-            <section class="-form h-full  dark:bg-neutral-700">
+        <section class="-form h-full  dark:bg-neutral-700">
             <div class="container h-full p-10">
                 <div
                     class="flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
@@ -32,8 +32,9 @@
                                             </h4>
                                         </div>
                                         @if ($errors->any())
-                                            <div class=" border text-center border-red-400 text-red-500 px-4 py-3 rounded relative"
-                                                 role="alert">
+                                            <div
+                                                class=" border text-center border-red-400 text-red-500 px-4 py-3 rounded relative"
+                                                role="alert">
                                                 <ul>
                                                     @foreach ($errors->all() as $error)
                                                         <li>{{ $error }}</li>
@@ -67,7 +68,7 @@
                                                     name="password"
                                                     class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                                                     id="exampleFormControlInput11"
-                                                    placeholder=""/>
+                                                    placeholder="Password"/>
                                                 <label
                                                     for="exampleFormControlInput11"
                                                     class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[0.9rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-400 dark:peer-focus:text-primary"
@@ -117,7 +118,8 @@
                                             We are more than just a company
                                         </h4>
                                         <p class="text-sm">
-                                            une plateforme de gestion et réservation des places d'événements avec laravel.
+                                            une plateforme de gestion et réservation des places d'événements avec
+                                            laravel.
                                         </p>
                                     </div>
                                 </div>

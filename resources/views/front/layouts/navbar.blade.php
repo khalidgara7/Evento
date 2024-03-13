@@ -30,7 +30,7 @@
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-gray-200 hover:text-gray-500" href="{{ route('profile.index') }}">Profile</a></li>
+            <li><a class="text-sm text-gray-200 hover:text-gray-500" href="{{ route('profile.index') }}">My Events</a></li>
             <li class="text-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
                     class="w-4 h-4 current-fill" viewBox="0 0 24 24">
@@ -54,7 +54,9 @@
         </ul>
 
 
+
         <!--Profile-->
+        @if(!auth()->user())
         <a class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7 hover:bg-orange-400 hidden rounded-xl lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 "
            href="{{ Route('registerform') }}">
             <span class="[&>svg]:w-5">
@@ -77,9 +79,11 @@
                 </svg>
             </span>
         </a>
+        @endif
+        @if(auth()->user())
         <form class="mr-4 mt-1.5" action="{{ Route('logout') }}" method="POST">
             @csrf
-            <button type="submit" class="mr-4 text-white hover:text-neutral-700 focus:text-neutral-7 hover:bg-orange-400 rounded-xl lg:inline-block  lg:mr-3 py-2 px-6  "
+            <button type="submit" class="mr-4 text-gray hover:text-neutral-700 focus:text-neutral-7 hover:bg-orange-400 rounded-xl lg:inline-block  lg:mr-3 py-2 px-6  "
                 href="{{ Route('loginform') }}">
                 <span class="[&>svg]:w-5">
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -90,6 +94,7 @@
                 </span>
             </button>
         </form>
+        @endif
 
     </nav>
     <div class="navbar-menu relative z-50 hidden">
@@ -98,7 +103,7 @@
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <a class="mr-auto text-3xl font-bold leading-none" href="#">
-                    <img src="{{ URL::asset('assets/images/eventologo.png') }}" style="width: 7rem" alt="">
+                    <img src="{{ URL::asset('assets/images/eventologo.png') }}" style="width:   7rem" alt="">
                 </a>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-200 cursor-pointer hover:text-gray-500"
@@ -134,14 +139,19 @@
             </div>
             <div class="mt-auto">
                 <div class="pt-6">
+
                     <a class="block px-4 py-3 mb-3  text-xs text-center font-semibold leading-none bg-gray-100 hover:bg-gray-100 rounded-xl"
                         href="{{ Route('loginform') }}">Sign in</a>
+
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-orange-100 hover:bg-blue-700  rounded-xl"
                         href="{{ Route('registerform') }}">Sign Up</a>
+
                     <form action="{{ Route('logout') }}" method="POST">
                         @csrf
                         <button type="submit"
-                            class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-orange-100 hover:bg-blue-700  rounded-xl">logout</button>
+                            class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-orange-100 hover:bg-blue-700  rounded-xl">
+                            logout
+                        </button>
                     </form>
                 </div>
                 <p class="my-4 text-xs text-center text-gray-200">

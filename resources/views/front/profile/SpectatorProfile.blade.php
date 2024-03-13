@@ -3,7 +3,7 @@
     <div class="md:w-3/12 md:ml-16">
         <!-- profile image -->
         <img class="object-cover w-20 h-20 p-1 border-2 border-pink-600 rounded-full md:w-40 md:h-40"
-            src="{{ asset('assets/images/profileuser.png') }}" alt="profile">
+            src="{{ asset('assets/images/animateur.jpeg') }}" alt="profile">
     </div>
 
     <!-- profile meta -->
@@ -49,7 +49,7 @@
 
     <!-- user meta form small screens -->
     <div class="my-2 text-sm md:hidden">
-        <h1 class="font-semibold text-gray-200">Mr Travlerrr...</h1>
+        <h1 class="font-semibold text-gray-200">Mr Traveler...</h1>
         <span class="text-gray-200">Travel, Nature and Music</span>
         <p class="text-gray-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur accusamus voluptatibus eligendi assumenda sapiente illo quas tempora quia officiis quaerat quibusdam exercitationem ullam quasi, officia eius voluptatem, dolorum ipsam temporibus!</p>
     </div>
@@ -103,7 +103,7 @@
             <div
                 class="bg-gray-500 mb-6 mx-2 cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative group">
                 <a href="">
-                    <img src="{{ asset('assets/images/getticket.jpg') }}" alt="Blog Post 1"
+                    <img src="{{ asset('assets/images/image7.png') }}" alt="Blog Post 1"
                         class="object-cover w-full h-96" />
                 </a>
                 @if ($reservation->status=='pending')

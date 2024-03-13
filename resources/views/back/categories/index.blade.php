@@ -14,7 +14,7 @@
 @section('content')
     <main id="main" class="pt-16 px-28">
         <h2 class="my-6 text-4xl font-semibold tracking-widest text-center text-gray-700 font-poppins dark:text-gray-200">
-            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Managment
+            <span class="text-primary-100 dark:text-orange">@yield('title_page') </span> - Management
         </h2>
 
         <div class="flex items-center bg-gray-100 dark:bg-gray-900">
@@ -24,7 +24,7 @@
                     <div class="flex items-center justify-between p-5 bg-white rounded shadow-sm">
                         <div>
                             <div class="text-sm text-gray-400 ">Total Categories</div>
-                            <div class="flex items-center pt-1">
+                            <div class="flex items-center  pt-1">
                                 <div class="text-xl font-medium text-indigo-400 ">
                                     {{ $total_categories }}</div>
                             </div>

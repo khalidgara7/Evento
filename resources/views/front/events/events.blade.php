@@ -37,7 +37,6 @@
 
                     <select id="categories" name="categorie"
                         class="w-1/3 md:w-auto px-6 py-2 text-primary-300 border-primary-100 fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all">
-                        <option class="text-primary-300" value="" selected="">All</option>
                         @foreach ($categories as $categorie)
                             <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
                         @endforeach
