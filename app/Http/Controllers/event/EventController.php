@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
 
-
     public function AdminStatistics()
     {
         $status_statistics = [
@@ -41,7 +40,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::paginate(5);
+        $events = Event::paginate(10);
         $status_statistics = $this->AdminStatistics();
         return view('back.events.index', compact('events', 'status_statistics'));
     }
@@ -60,7 +59,7 @@ class EventController extends Controller
         return view('back.events.create',compact('categories','organizers'));
     }
 
-//     select * from User innerjoin on roles where name= 'organizer'
+
 
     /**
      * Store a newly created resource in storage.

@@ -33,5 +33,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('access-spectator', function ($user) {
             return $user->isSpectator();
         });
-        }
+    }
 }

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class EventReservationController extends Controller
 {
+
+
     public function index(string $id)
     {
         $event = Event::findOrFail($id);
@@ -21,7 +23,7 @@ class EventReservationController extends Controller
     public function activateReservation($id)
     {
         $reservation = Reservation::findOrfail($id);
-        
+
         $reservation->update([
             "status" => "confirmed",
         ]);
@@ -31,7 +33,7 @@ class EventReservationController extends Controller
     public function cancelReservation($id)
     {
         $reservation = Reservation::findOrfail($id);
-        
+
         $reservation->update([
             "status" => "cancelled",
         ]);
